@@ -17,7 +17,9 @@ function App() {
         >
           Learn React
         </a>
+        <p className="hover:text-yellow-500">Hello, world!</p>
       </header>
+      
     </div>
   );
 }
