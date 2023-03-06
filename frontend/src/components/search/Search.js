@@ -7,17 +7,13 @@ const Search = ({ navigate }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        let response = await fetch(`/weather?location=${location}`);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
         let data;
         try {
+            let response = await fetch(`/weather?location=${location}`);
+            
             data = await response.json();
         } catch (e) {
-            console.error('Failed to parse JSON: ', e);
+            console.error(e);
             return;
         }
 
