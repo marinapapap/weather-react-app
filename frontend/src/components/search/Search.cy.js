@@ -21,4 +21,17 @@ describe("Search", () => {
 
         cy.wait("@weatherRequest");
     });
+
+    it("if no location is given, request not sent", () => {
+        cy.intercept("GET", "/weather?location=")
+        .as("weatherRequest");
+
+        cy.get('[data-cy="location-search"]')
+        cy.get('[data-cy="submit-location"]').click();
+
+        cy.wait(2000);
+        cy.get('@weatherRequest.all').then((interceptions) => {
+            expect(interceptions).to.have.length(0);
+        });
+    })
 })

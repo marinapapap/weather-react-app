@@ -3,31 +3,42 @@ import React, { useState } from "react";
 const Search = ({ navigate }) => {
     const [location, setLocation] = useState("");
     const [weather, setWeather] = useState("");
+    const [locationAlert, setLocationAlert] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        let data;
+        if(location !== "") {
+            let data;
         try {
             let response = await fetch(`/weather?location=${location}`);
-            
+
             data = await response.json();
         } catch (e) {
             console.error(e);
             return;
         }
-
-        setWeather(data.results);
+            setWeather(data.results);
+        } else {
+            setLocationAlert(true);
+        }
     }; 
 
     const handleChange = (setFunction) => {
         return (event) => {
+            setLocationAlert(false);
             setFunction(event.target.value);
         };
     };
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    const handleLocationAlert = () => {
+        if(locationAlert === true) {
+            return "You need to enter a location...";
+        }
     }
 
     return(
@@ -48,6 +59,7 @@ const Search = ({ navigate }) => {
             className="border"
         />
         </form>
+        <p>{handleLocationAlert()}</p>
         <br />
         <h1 className="text-lg">Weather in {capitalizeFirstLetter(location)}</h1>
         <br />
