@@ -34,4 +34,14 @@ describe("Search", () => {
             expect(interceptions).to.have.length(0);
         });
     })
+
+    it("if no location is given, an alert is rendered", () => {
+        cy.intercept("GET", "/weather?location=")
+        .as("weatherRequest");
+
+        cy.get('[data-cy="location-search"]')
+        cy.get('[data-cy="submit-location"]').click();
+
+        cy.get('[data-cy="location-alert').contains("You need to enter a location...");
+    })
 })

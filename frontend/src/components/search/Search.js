@@ -59,7 +59,7 @@ const Search = ({ navigate }) => {
             className="border"
         />
         </form>
-        <p>{handleLocationAlert()}</p>
+        <p data-cy="location-alert">{handleLocationAlert()}</p>
         <br />
         <h1 className="text-lg">Weather in {capitalizeFirstLetter(location)}</h1>
         <br />
