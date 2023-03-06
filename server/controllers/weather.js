@@ -9,11 +9,15 @@ const WeatherController = {
         }).catch((error) => {
             console.error(error);
             });
+    
 
-        res.status(200).json({
+        console.log(weatherData.main);
+
+        res.status(200)
+        .json({
             message: "ok",
-            results: weatherData
-        })
+            results: weatherData.main
+        });
     }
 }
 
