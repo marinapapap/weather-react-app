@@ -7,10 +7,10 @@ const Weather = (props) => {
     if(props.renderWeather === true) {
         return(
             <>
-                <h1 className="text-lg">Weather in {capitalizeFirstLetter(props.location)}</h1>
+                <h1 data-cy="results-header" className="text-lg">Weather in {capitalizeFirstLetter(props.location)}</h1>
                 <div>
-                    <p>Temperature: {props.temp}</p>
-                    <p>Feels Like: {props.feelsLike}</p>
+                    <p data-cy="results-temp">Temperature: {props.temp}°C</p>
+                    <p data-cy="results-feelsLike">Feels Like: {props.feelsLike}°C</p>
                 </div>
             </>
         );
