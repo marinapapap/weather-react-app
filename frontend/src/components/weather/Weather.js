@@ -1,6 +1,13 @@
 import "./Weather.css";
 
 const Weather = (props) => {
+  const weatherIcon = () => {
+    const icon = props.weatherData.weather[0].icon;
+    console.log(props.weatherData);
+    let url = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    return url;
+  };
+
   if (props.renderWeather === true) {
     return (
       <div className="flex flex-col justify-center items-center content-center text-center">
@@ -18,7 +25,8 @@ const Weather = (props) => {
                 °C
               </span>
             </div>
-            <span class="material-symbols-outlined md-60">sunny</span>
+            {/* <span class="material-symbols-outlined md-60">sunny</span> */}
+            <img alt="weather-icon" src={weatherIcon()}></img>
           </div>
         </div>
       </div>

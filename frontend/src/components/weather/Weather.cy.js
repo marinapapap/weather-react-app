@@ -15,9 +15,7 @@ describe("weather", () => {
   });
 
   it("renders the location, temp and feelsLike values in the client", () => {
-    cy.mount(
-      <Weather temp={""} feelsLike={""} location={""} renderWeather={false} />
-    );
+    cy.mount(<Weather weather={""} location={""} renderWeather={false} />);
 
     cy.get('[data-cy="results-temp"]').should("not.exist");
     cy.get('[data-cy="results-feelsLike"]').should("not.exist");
