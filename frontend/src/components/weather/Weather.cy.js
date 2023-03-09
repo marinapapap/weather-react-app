@@ -4,14 +4,13 @@ describe("weather", () => {
   it("renders the location, temp and feelsLike values in the client", () => {
     cy.mount(
       <Weather
-        temp={5}
-        feelsLike={4}
+        weatherData={{ main: { temp: 5, feels_like: 4 } }}
         location={"london"}
         renderWeather={true}
       />
     );
 
-    cy.get('[data-cy="results-temp"]').contains("Temperature: 5°C");
+    cy.get('[data-cy="results-temp"]').contains("5°C");
     cy.get('[data-cy="results-feelsLike"]').contains("Feels Like: 4°C");
   });
 

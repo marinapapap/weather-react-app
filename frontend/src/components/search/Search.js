@@ -70,8 +70,7 @@ const Search = ({ navigate }) => {
       <p data-cy="location-alert">{handleLocationAlert()}</p>
       <br />
       <Weather
-        temp={weather.temp}
-        feelsLike={weather.feels_like}
+        weatherData={weather}
         location={location}
         renderWeather={renderWeather}
       />
