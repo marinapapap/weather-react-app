@@ -23,6 +23,7 @@ describe("User search function", () => {
 
     cy.wait("@getWeather").then(() => {
       cy.get('[data-cy="results-temp"]').should("contain.text", "3.4°C");
+      cy.get('[data-cy="results-feelsLike"]').should("contain.text", "3.2°C");
     });
   });
 });
