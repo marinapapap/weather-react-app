@@ -20,7 +20,6 @@ const Search = ({ navigate }) => {
         console.error(e);
         return;
       }
-      console.log(data);
       setWeather(data.results);
       setRenderWeather(true);
     } else {
