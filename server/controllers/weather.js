@@ -1,5 +1,9 @@
 const WeatherController = {
   GetWeather: async (req, res) => {
+    if (req.query.location === "") {
+      return res.status(400).json({ message: "No location provided." });
+    }
+
     const city = req.query.location;
     let weatherData;
 
@@ -11,9 +15,14 @@ const WeatherController = {
       weatherData = await response.json();
     } catch (e) {
       console.error(e);
+      return res.status(500).json({ message: "An error occurred." });
     }
 
-    res.status(200).json({
+    if (weatherData.cod !== 200) {
+      return res.status(400).json({ message: weatherData.message });
+    }
+
+    return res.status(200).json({
       message: "ok",
       results: weatherData,
     });
