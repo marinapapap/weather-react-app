@@ -10,21 +10,22 @@ const Search = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (location !== "") {
-      let data;
-      try {
-        let response = await fetch(`/weather?location=${location}`);
-
-        data = await response.json();
-      } catch (e) {
-        console.error(e);
+    let data;
+    try {
+      let response = await fetch(`/weather?location=${location}`);
+      if (response.status === 400) {
+        setLocationAlert(true);
         return;
       }
-      setWeather(data.results);
-      setRenderWeather(true);
-    } else {
+      data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
       setLocationAlert(true);
+      return;
     }
+    setWeather(data.results);
+    setRenderWeather(true);
   };
 
   const handleChange = (setFunction) => {
@@ -36,7 +37,7 @@ const Search = ({ navigate }) => {
 
   const handleLocationAlert = () => {
     if (locationAlert === true) {
-      return "You need to enter a location...";
+      return "Oops, you need to enter a valid location...";
     }
   };
 
