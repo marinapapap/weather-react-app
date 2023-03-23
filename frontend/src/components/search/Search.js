@@ -70,11 +70,7 @@ const Search = ({ navigate }) => {
       </form>
       <p data-cy="location-alert">{handleLocationAlert()}</p>
       <br />
-      <Weather
-        weatherData={weather}
-        location={location}
-        renderWeather={renderWeather}
-      />
+      <Weather weatherData={weather} renderWeather={renderWeather} />
     </div>
   );
 };
