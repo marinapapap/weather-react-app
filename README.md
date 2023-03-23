@@ -1,12 +1,12 @@
 # Weather App
 
-# The App
+## The App
 
 A full-stack application with a RESTful api, that takes a location from the user and provides the weather in that location.
 
 ## Project Goal
 
-This application is a simple idea that I completed, as a solo project, shortly after the Makers bootcamp. It enabled me to consolidate a lot of my learnings from the course and provided a platform to do deeper research into concepts that I could make work, but couldn't confidently explain why it worked (e.g. async await vs callbacks).
+This application is a simple idea that I completed, as a solo project, shortly after the Makers bootcamp. It enabled me to consolidate a lot of my learnings from the course and provided a platform to do deeper research into concepts that I could make work, but couldn't confidently explain why it worked (e.g. async await).
 
 ## The Tech
 
@@ -35,7 +35,7 @@ $ cd server
 $ npm install
 ```
 
-Register and get an API key for [OpenWeather](https://openweathermap.org/api). Then, create a new .env file in the api folder:
+Register and get an API key for [OpenWeather](https://openweathermap.org/api). Then, create a new .env file in the server folder:
 
 ```js
 $ cd server
