@@ -13,7 +13,7 @@ describe("weather", () => {
     );
 
     cy.get('[data-cy="results-temp"]').contains("5°C");
-    cy.get('[data-cy="results-feelsLike"]').contains("Feels Like: 4°C");
+    cy.get('[data-cy="results-feelsLike"]').contains("Feels like 4°C");
   });
 
   it("does not render the location, temp and feelsLike values in the client", () => {

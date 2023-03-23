@@ -16,7 +16,7 @@ const Weather = ({ renderWeather, weatherData }) => {
          rounded-xl ring-8 ring-white ring-opacity-40 duration-300 hover:scale-105"
         >
           <div className="flex justify-between">
-            <div className="p-8 flex flex-col">
+            <div className="flex flex-col my-9 ml-4">
               <span
                 data-cy="results-temp"
                 className="text-6xl font-bold text-[#989898]"
@@ -24,11 +24,10 @@ const Weather = ({ renderWeather, weatherData }) => {
                 {weatherData.main.temp}°C
               </span>
               <span data-cy="results-feelsLike" className="text-[#989898]">
-                Feels Like: {weatherData.main.feels_like}
+                Feels like {weatherData.main.feels_like}
                 °C
               </span>
             </div>
-            {/* <span class="material-symbols-outlined md-60">sunny</span> */}
             <img alt="weather-icon" src={weatherIcon()}></img>
           </div>
         </div>
